@@ -6,11 +6,11 @@ import "./style.css";
 const root = document.getElementById("root");
 
 if (!root) {
-  throw new Error("Diffie could not find its application root.");
+    throw new Error("Diffie could not find its application root.");
 }
 
 createRoot(root).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+    <StrictMode>
+        <App />
+    </StrictMode>,
 );

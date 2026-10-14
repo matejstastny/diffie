@@ -1,47 +1,47 @@
 {
-  "name": "diffie",
-  "version": "0.1.0",
-  "description": "A focused, read-only Git branch diff viewer for Linux",
-  "license": "MIT",
-  "private": true,
-  "repository": "github:matejstastny/diffie",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "check": "tsc -b",
-    "lint": "biome lint .",
-    "format": "biome format --write .",
-    "format:check": "biome format .",
-    "fix": "biome check --write .",
-    "rust:fmt": "cargo fmt --manifest-path src-tauri/Cargo.toml --check",
-    "rust:lint": "cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets -- -D warnings",
-    "test": "cargo test --manifest-path src-tauri/Cargo.toml",
-    "verify": "pnpm format:check && pnpm lint && pnpm check && pnpm rust:fmt && pnpm rust:lint && pnpm test",
-    "prepare": "husky"
-  },
-  "dependencies": {
-    "@material-symbols/svg-400": "^0.48.0",
-    "@tanstack/react-virtual": "^3.14.17",
-    "highlight.js": "^11.12.0",
-    "material-file-icons": "^2.4.0",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^2.5.15",
-    "@commitlint/cli": "^20.5.3",
-    "@commitlint/config-conventional": "^20.5.3",
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
-    "@vitejs/plugin-react": "^6.1.2",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.4.0",
-    "typescript": "^7.0.2",
-    "vite": "^8.3.4"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css}": "biome check --write --no-errors-on-unmatched",
-    "*.rs": "rustfmt --edition 2024"
-  }
+    "name": "diffie",
+    "version": "0.1.0",
+    "description": "A focused, read-only Git branch diff viewer for Linux",
+    "license": "MIT",
+    "private": true,
+    "repository": "github:matejstastny/diffie",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc -b && vite build",
+        "check": "tsc -b",
+        "lint": "biome lint .",
+        "format": "biome format --write .",
+        "format:check": "biome format .",
+        "fix": "biome check --write .",
+        "rust:fmt": "cargo fmt --manifest-path src-tauri/Cargo.toml --check",
+        "rust:lint": "cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets -- -D warnings",
+        "test": "cargo test --manifest-path src-tauri/Cargo.toml",
+        "verify": "pnpm format:check && pnpm lint && pnpm check && pnpm rust:fmt && pnpm rust:lint && pnpm test",
+        "prepare": "husky"
+    },
+    "dependencies": {
+        "@material-symbols/svg-400": "^0.48.0",
+        "@tanstack/react-virtual": "^3.14.17",
+        "highlight.js": "^11.12.0",
+        "material-file-icons": "^2.4.0",
+        "react": "^19.3.0",
+        "react-dom": "^19.3.0"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.5.15",
+        "@commitlint/cli": "^20.5.3",
+        "@commitlint/config-conventional": "^20.5.3",
+        "@types/react": "^19.3.0",
+        "@types/react-dom": "^19.3.0",
+        "@vitejs/plugin-react": "^6.1.2",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.4.0",
+        "typescript": "^7.0.2",
+        "vite": "^8.3.4"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx,json,css}": "biome check --write --no-errors-on-unmatched",
+        "*.rs": "rustfmt --edition 2024"
+    }
 }
