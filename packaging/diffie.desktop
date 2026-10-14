@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Diffie
+Comment=Review Git branch diffs
+Exec=@DIFFIE_BIN@ %F
+Icon=diffie
+Terminal=false
+Categories=Development;RevisionControl;
+MimeType=inode/directory;
+StartupWMClass=diffie
