@@ -199,6 +199,37 @@ kbd {
     opacity: 0.4;
     cursor: not-allowed;
 }
+.refresh {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 1px solid #3d3d5c;
+    border-radius: 8px;
+    color: var(--purple);
+    background: var(--surface);
+}
+.refresh img {
+    width: 18px;
+    filter: invert(64%) sepia(23%) saturate(900%) hue-rotate(202deg);
+}
+.refresh:hover:not(:disabled) {
+    border-color: #7979b8;
+    background: #26253b;
+}
+.refresh:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+.refresh.spinning img {
+    animation: refresh-spin 750ms linear infinite;
+}
+@keyframes refresh-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
 .workspace {
     display: grid;
     grid-template-columns: 250px minmax(0, 1fr);
@@ -805,5 +836,8 @@ kbd {
 @media (prefers-reduced-motion: reduce) {
     * {
         scroll-behavior: auto;
+    }
+    .refresh.spinning img {
+        animation: none;
     }
 }

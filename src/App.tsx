@@ -4,6 +4,7 @@ import DescriptionIcon from "@material-symbols/svg-400/rounded/description.svg";
 import FolderIcon from "@material-symbols/svg-400/rounded/folder.svg";
 import FolderOpenIcon from "@material-symbols/svg-400/rounded/folder_open.svg";
 import MoreIcon from "@material-symbols/svg-400/rounded/more_horiz.svg";
+import RefreshIcon from "@material-symbols/svg-400/rounded/refresh.svg";
 import SearchIcon from "@material-symbols/svg-400/rounded/search.svg";
 import SwapIcon from "@material-symbols/svg-400/rounded/swap_horiz.svg";
 import { useVirtualizer } from "@tanstack/react-virtual";
@@ -282,6 +283,30 @@ export default function App() {
         setHead(base);
     };
 
+    const refreshRepository = async () => {
+        if (!repo) return;
+        setBusy(true);
+        try {
+            const nextRepo = await invoke<Repository>("open_repository", { path: repo.path });
+            const availableBranches = new Set(nextRepo.branches.map((branch) => branch.name));
+            const nextBase = availableBranches.has(base) ? base : nextRepo.defaultBase;
+            const nextHead =
+                head === LOCAL_CHECKOUT || availableBranches.has(head)
+                    ? head
+                    : (nextRepo.currentBranch ??
+                      nextRepo.branches.find((branch) => branch.name !== nextBase)?.name ??
+                      nextBase);
+            setRepo(nextRepo);
+            setBase(nextBase);
+            setHead(nextHead);
+            setMessage("Refreshing repository…");
+        } catch (error) {
+            setMessage(readError(error));
+        } finally {
+            setBusy(false);
+        }
+    };
+
     useEffect(() => {
         if (!repo || !base || !head) return;
         void compare();
@@ -366,6 +391,15 @@ export default function App() {
                         includeCheckout
                         onChange={setHead}
                     />
+                    <button
+                        className={`refresh ${busy ? "spinning" : ""}`}
+                        onClick={() => void refreshRepository()}
+                        disabled={!repo || busy}
+                        title="Refresh branches and comparison"
+                        aria-label="Refresh branches and comparison"
+                    >
+                        <img src={RefreshIcon} alt="" />
+                    </button>
                 </div>
             </header>
             <section className="workspace">
