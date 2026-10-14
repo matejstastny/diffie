@@ -1,0 +1,17 @@
+[package]
+name = "diffie"
+version = "0.1.0"
+description = "A focused branch diff viewer"
+authors = ["Elara"]
+edition = "2024"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+rfd = "0.15"
+serde = { version = "1", features = ["derive"] }
+tauri = { version = "2", features = [] }
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]
