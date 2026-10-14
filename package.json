@@ -1,7 +1,10 @@
 {
   "name": "diffie",
   "version": "0.1.0",
+  "description": "A focused, read-only Git branch diff viewer for Linux",
+  "license": "MIT",
   "private": true,
+  "repository": "github:matejstastny/diffie",
   "type": "module",
   "scripts": {
     "dev": "vite",

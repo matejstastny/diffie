@@ -3,6 +3,8 @@ name = "diffie"
 version = "0.1.0"
 description = "A focused branch diff viewer"
 authors = ["Elara"]
+license = "MIT"
+repository = "https://github.com/matejstastny/diffie"
 edition = "2024"
 
 [build-dependencies]
